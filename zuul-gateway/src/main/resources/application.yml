@@ -15,11 +15,11 @@ zuul:
   routes:
     product-service:
       path: /product-service/**
-      serviceId: product-service
+      url: http://localhost:8082/
     user-service:
       path: /user-service/**
-      serviceId: user-service
-      #url: http://localhost:8081/
+#      serviceId: user-service
+      url: http://localhost:8081/
 ribbon:
  eureka:
    enabled: false
