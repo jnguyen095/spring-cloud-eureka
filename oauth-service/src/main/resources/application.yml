@@ -1,0 +1,37 @@
+server:
+  port: 8083
+
+eureka:
+   client:
+      serviceUrl:
+         defaultZone: http://localhost:8761/eureka
+      instance:
+      preferIpAddress: true
+
+spring:
+  application:
+      name: auth-service
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/jpatest
+    username: test
+    password: 123456
+  jpa:
+    properties:
+      schema: jpatest
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    # Hibernate ddl auto (create, create-drop, validate, update)
+    hibernate:
+      ddl-auto: update
+
+security:
+  oauth2:
+    client:
+      client-id: client
+      client-secret: secret
+      scope: read,write
+      auto-approve-scopes: '.*'

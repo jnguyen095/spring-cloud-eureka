@@ -12,9 +12,11 @@ create table users(
   username VARCHAR(50) not null,
   password VARCHAR(50) not null,
   fullname VARCHAR(125) not null,
+  role VARCHAR(50) not null,
   createddate TIMESTAMP not null,
 
   UNIQUE (username)
 );
-
-insert into users(username, password, fullname, createddate) VALUES ('khang', '123456', 'Khang Nguyen', now());
+ -- password: 123456
+insert into users(username, password, fullname, role, createddate) VALUES ('user', '$2a$10$RwH0Cl.OoPkmvoM6xUyKj.yswYCinwc7QFEXsYBoNzTxt0J8/krOu', 'Khang Nguyen', 'USER', now());
+insert into users(username, password, fullname, role, createddate) VALUES ('admin', '$2a$10$RwH0Cl.OoPkmvoM6xUyKj.yswYCinwc7QFEXsYBoNzTxt0J8/krOu', 'Administrator', 'ADMIN', now());
