@@ -18,8 +18,10 @@ zuul:
       url: http://localhost:8082/
     user-service:
       path: /user-service/**
-#      serviceId: user-service
       url: http://localhost:8081/
+    auth-service:
+      path: /auth-service/**
+      url: http://localhost:8083/
 ribbon:
  eureka:
    enabled: false

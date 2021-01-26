@@ -25,16 +25,23 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
                 .antMatchers(HttpMethod.POST, SECURED_PATTERN).access(SECURED_WRITE_SCOPE)
                 .anyRequest().access(SECURED_READ_SCOPE);*/
         http
-                .authorizeRequests().antMatchers("/oauth/token", "/api/rest/**").permitAll();
+                .authorizeRequests().antMatchers("/oauth/token").permitAll()
+                .and()
+                .requestMatchers().antMatchers("/auth-service/oauth/token/**")
+                .and().authorizeRequests().antMatchers("/auth-service/oauth/token/*").permitAll()
+                .and()
+                .requestMatchers().antMatchers("/api/rest/**", "/auth-service/api/rest/**")
+                .and().authorizeRequests().antMatchers("/auth-service/api/rest/**", "/api/rest/**").permitAll();
+
         http
-                .requestMatchers().antMatchers("/api/logon/**")
-                .and().authorizeRequests().antMatchers("/api/logon/**").access("hasAuthority('LOGON')") // neu dung hasRole thi co prefix ROLE_<...>
+                .requestMatchers().antMatchers("/auth-service/api/logon/**", "/api/logon/**")
+                .and().authorizeRequests().antMatchers("/auth-service/api/logon/**", "/api/logon/**").access("hasAuthority('LOGON')") // neu dung hasRole thi co prefix ROLE_<...>
                 .and()
-                .requestMatchers().antMatchers("/api/user")
-                .and().authorizeRequests().antMatchers("/api/user/**").access("hasAuthority('USER')")
+                .requestMatchers().antMatchers("/auth-service/api/user/**", "/api/user/**")
+                .and().authorizeRequests().antMatchers("/auth-service/api/user/**", "/api/user/**").access("hasAuthority('USER')")
                 .and()
-                .requestMatchers().antMatchers("/api/admin")
-                .and().authorizeRequests().antMatchers("/api/admin/**").access("hasAuthority('ADMIN')");
+                .requestMatchers().antMatchers("/auth-service/api/admin/**", "/api/admin/**")
+                .and().authorizeRequests().antMatchers("/auth-service/api/admin/**", "/api/admin/**").access("hasAuthority('ADMIN')");
 
     }
 }
