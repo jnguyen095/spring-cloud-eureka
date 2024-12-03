@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "userid")
     private Long userId;
     @Column(name = "username")
     private String userName;

@@ -10,7 +10,7 @@ set SEARCH_PATH to jpatest;
 create table users(
   userid BIGSERIAL NOT NULL PRIMARY KEY ,
   username VARCHAR(150) not null,
-  password VARCHAR(50) not null,
+  password VARCHAR(200) not null,
   fullname VARCHAR(125) not null,
   role VARCHAR(50) not null,
   createddate TIMESTAMP not null,

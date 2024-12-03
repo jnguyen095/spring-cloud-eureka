@@ -18,9 +18,9 @@ public class UserController {
     private IUserService userService;
 
     @RequestMapping("/")
-    public String home() {
+    public List<UserEntity> home() {
         List<UserEntity> entityList = userService.findAll();
-        return "Client service " + entityList.size();
+        return entityList;//"Client service " + entityList.size();
     }
 
 }

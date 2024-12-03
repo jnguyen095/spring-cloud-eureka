@@ -16,6 +16,7 @@ spring:
     hikari:
       connection-timeout: 5000
       maximum-pool-size: 5
+      schema: jpatest
   jpa:
     hibernate:
       ddl-auto: none

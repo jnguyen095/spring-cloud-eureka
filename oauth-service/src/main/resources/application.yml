@@ -15,6 +15,10 @@ spring:
     url: jdbc:postgresql://localhost:5432/jpatest
     username: test
     password: 123456
+    hikari:
+      connection-timeout: 5000
+      maximum-pool-size: 5
+      schema: jpatest
   jpa:
     properties:
       hibernate.default_schema: jpatest
