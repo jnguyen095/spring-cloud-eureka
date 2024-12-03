@@ -5,11 +5,8 @@ eureka:
    client:
       serviceUrl:
          defaultZone: http://localhost:8761/eureka
-      instance:
-      preferIpAddress: true
+
 spring:
-  application:
-      name: auth-service
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/jpatest
@@ -24,14 +21,17 @@ spring:
       hibernate.default_schema: jpatest
       hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
       hibernate.jdbc.lob.non_contextual_creation: true
-    # Hibernate ddl auto (create, create-drop, validate, update)
     hibernate:
       ddl-auto: update
+
+  application:
+    name: auth-service
 
 security:
   oauth2:
     client:
       client-id: client
       client-secret: secret
+      check-token-url: http://localhost:8080/oauth/check-token
       scope: read,write
       auto-approve-scopes: '.*'

@@ -22,6 +22,7 @@ zuul:
     auth-service:
       path: /auth-service/**
       url: http://localhost:8083/
+
 ribbon:
  eureka:
-   enabled: false
+   enabled: false # Not use Eureka to look up services
