@@ -12,3 +12,6 @@
    * Header: Authorization with value: bearer 36341a50-a6ee-4d0a-8379-e107dca21352'
    * Access: http://localhost:8083/api/user [role: USER]
    * Access: http://localhost:8083/api/admin [role: ADMIN] 
+3. Feign client: http://localhost:8080/product-service/api/product/users/admin
+   * Service product -> call to -> Service user as an example
+4. Postman: [/document/local test.postman_collection.json]   
