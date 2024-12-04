@@ -7,6 +7,22 @@ eureka:
          defaultZone: http://localhost:8761/eureka
       instance:
       preferIpAddress: true
+
 spring:
-   application:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jpatest
+    username: test
+    password: 123456
+    hikari:
+      connection-timeout: 5000
+      maximum-pool-size: 5
+      schema: jpatest
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate.default_schema: jpatest
+    show-sql: true
+
+  application:
       name: product-service

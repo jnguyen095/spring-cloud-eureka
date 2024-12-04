@@ -16,4 +16,9 @@ public class UserServiceImpl implements IUserService{
     public List<UserEntity> findAll() {
         return (List<UserEntity>)userRepository.findAll();
     }
+
+    @Override
+    public UserEntity findByUserName(String name) {
+        return userRepository.findByUserName(name);
+    }
 }
