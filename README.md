@@ -14,4 +14,4 @@
    * Access: http://localhost:8083/api/admin [role: ADMIN] 
 3. Feign client: http://localhost:8080/product-service/api/product/users/admin
    * Service product -> call to -> Service user as an example
-4. Postman: [/document/local test.postman_collection.json]   
+4. Postman: [[local test.postman_collection.json]](https://github.com/jnguyen095/spring-cloud-eureka/blob/master/document/local%20test.postman_collection.json)   
