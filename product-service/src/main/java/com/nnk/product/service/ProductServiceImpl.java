@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 public class ProductServiceImpl implements IProductService{
 
     @Autowired
-    private FeignUserRepository productRepository;
+    private FeignUserRepository userRepository;
     @Override
     public UserEntity findByUserName(String userName) {
-        return productRepository.findByUserName(userName);
+        return userRepository.findByUserName(userName);
     }
 }
